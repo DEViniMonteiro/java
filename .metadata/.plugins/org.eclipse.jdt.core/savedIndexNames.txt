@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\moonk\OneDrive\Área de Trabalho\Java\.metadata\.plugins\org.eclipse.jdt.core
+2437385118.index
+2380175872.index
+1865797976.index
