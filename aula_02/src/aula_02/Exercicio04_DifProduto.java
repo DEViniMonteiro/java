@@ -25,7 +25,8 @@ public class Exercicio04_DifProduto {
 		diferenca = (numero1*numero2)-(numero3*numero4);
 		
 		System.out.printf(
-				"\nA Diferença entre a soma dos numeros '%.1f' e '%.1f', menos, a soma de '%.1f' e '%.1f', é: %.1f!"
+				"\nA Diferença entre a soma dos numeros '%.1f' e '%.1f',"
+				+ " menos,\na soma de '%.1f' e '%.1f', é: %.1f!"
 				,numero1, numero2, numero3, numero4, diferenca);
 	}
 }
