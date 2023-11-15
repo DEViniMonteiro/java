@@ -9,56 +9,72 @@ public class Atividade01_Fila {
 	static Scanner leia = new Scanner(System.in);
 	public static void main(String[] args) {
 		Queue<String> fila = new LinkedList<String>();
-		int opcao;
+		Iterator<String> iterator = fila.iterator();
 		String nome;
+		int opcao;
 
-		System.out.println("********************************************************");
-		System.out.println("														");
-		System.out.println("		1 - Adicionar Cliente na fila 					");
-		System.out.println("		2 - Listar todos os Clientes					");
-		System.out.println("		3 - Retirar Cliente da Fila						");
-		System.out.println("		0 - Sair										");
-		System.out.println("														");
-		System.out.println("********************************************************");
-		System.out.println("Digite a Opção desejada:								");
-		opcao = leia.nextInt();
-
-		if (opcao == 0) {
-			System.out.println("\nPrograma Finalizado: ");
-			System.exit(0);
-		}
-		switch (opcao) {
-		case 1:
-			System.out.println("\nAdicionar Cliente na Fila: \n\n\n");
-			System.out.println("Digite o nome do Cliente: ");
+		do {
+			System.out.println("\n***********************************");
+			System.out.println("									 ");
+			System.out.println("	1 - Adicionar Cliente na Fila 	 ");
+			System.out.println("	2 - Listar todos os Clientes	 ");
+			System.out.println("	3 - Retirar Cliente da Fila		 ");
+			System.out.println("	0 - Sair						 ");
+			System.out.println("									 ");
+			System.out.println("*************************************");
+			System.out.print("\nDigite uma opção: ");
+			opcao = leia.nextInt();
 			leia.skip("\\R");
-			
-			nome =leia.nextLine();
-			fila.add(nome);
-			
-			System.out.println("Cliente Adicionado a Fila!");
-			break;
-		case 2:
-			System.out.println("\nListar todos os Clientes na Fila:\n\n\n");
-			
-			Iterator<String> iFila = fila.iterator();
-			while(iFila.hasNext()) {
-				System.out.println(iFila.next());
-			}
-			break;
-		case 3:
-			System.out.println("\nRetirar um Cliente da Fila: \n\n\n");
-			if(fila.isEmpty()) {
-				System.out.println("A Fila esta vazia: ");
-			}else {
-				fila.remove();
-				System.out.println("Cliente Retirado da Fila!");
-			}
-			
-			break;
-			default:
-				System.out.println("Opção invalida!!");
+
+			switch (opcao) {
+			case 1: {
+				System.out.print("\nDigite o nome: ");
+				nome = leia.nextLine();
+				fila.add(nome);
+
+				System.out.println("\nFila:\n");
+				iterator = fila.iterator();
+				while (iterator.hasNext()) {
+					System.out.println(iterator.next());
+				}
+				System.out.println("\nCliente Adicionado!");
 				break;
-		}
+			}
+			case 2: {
+				if (fila.isEmpty()) {
+					System.out.println("\nA Fila está vazia!");
+					break;
+				}
+				System.out.println("\nLista de Clientes na Fila:\n");
+				iterator = fila.iterator();
+				while (iterator.hasNext()) {
+					System.out.println(iterator.next());
+				}
+				break;
+			}
+			case 3: {
+				if (fila.isEmpty()) {
+					System.out.println("\nA Fila está vazia!");
+					break;
+				}
+				fila.poll();
+				
+				System.out.println("\nFila:\n");
+				iterator = fila.iterator();
+				while (iterator.hasNext()) {
+					System.out.println(iterator.next());
+				}
+				System.out.println("\nO cliente foi Chamado!");
+				break;
+			}
+			case 0: {
+				System.out.println("\nPrograma Finalizado!");
+				break;
+			}
+			default:
+				System.out.println("\nOpção inválida!");
+				break;
+			}
+		} while (opcao != 0);
 	}
 }
